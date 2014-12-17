@@ -1,1 +1,7 @@
 Our team's name is "Strikers"
+Members:
+	Spencer
+	Doug
+	Vim
+	Shellee
+	Marc
