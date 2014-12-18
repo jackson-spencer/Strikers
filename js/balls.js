@@ -34,7 +34,10 @@
  	        goRight(); 
  	    } else {                                     // otherwise, I'd better go left! 
  	        //goLeft();
- 	        document.getElementById('pinResult').innerHTML = getScore();
+ 	        var randomScore = getRandom(1,10);
+ 	        setScore(randomScore);
+ 	        document.getElementById('pinResult').innerHTML = getCurrentRoll();
+ 	        document.getElementById('TotalScore').innerHTML = getCumulativeScore();
  	        resetBall();
  	    } 
  	 

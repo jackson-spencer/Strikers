@@ -1,12 +1,12 @@
 var expect = chai.expect;
 
-describe( 'MainTest', function () {
+describe( 'ScoreTest', function () {
 
   it( 'save current ball score', function () {
-    var result = getScore();
+    //setScore();
+    alert("It's working");
+    var result = getCurrentRoll();
     expect( result.length ).to.equal( 1 );
   });
  
 });
-
-
