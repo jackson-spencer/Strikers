@@ -13,14 +13,19 @@
 
 	function resetBall() {
 		clearInterval(t);
+		dirx = 1; 
+	    spdx= setRand();
  	    document.images['ball1'].style.left = imgStrLeftInt +"px"; 
  	}
-  	function animBall(on) {               
+  	function animBall(on) {   
+
+  		//need code to disable "Roll Ball" action while this is active
+  		// since js is async, user can push roll while animation = bad            
  	    imgLeftInt = parseInt(document.images['ball1'].style.left); 
  	    imgTopInt = parseInt(document.images['ball1'].style.top); 
  	    imgHeight =  parseInt(document.images['ball1'].height); 
  	    imgWidth =  parseInt(document.images['ball1'].width); 
- 	    winWidth = parseInt(computeWin().windWidth); 
+ 	    winWidth = parseInt(computeWin().windWidth) / 1.30; 
  	    winHeight = parseInt(computeWin().windHeight); 
  	 
  	    if(dirx == 1){                            // if I should go right... 
@@ -42,7 +47,7 @@
  	    document.images['ball1'].style.left = imgLeftInt+spdx +"px"; 
  	    if (imgLeftInt >  (winWidth-imgWidth)){ 
  	        dirx = 0; 
- 	        spdx= setRand(); 
+ 	       // spdx= setRand(); 
  	    } 
  	} 
  	 
@@ -71,7 +76,12 @@
  	} 
 	 
 	function setRand() { 
-	    randnum= Math.floor(Math.random()*6)+20; 
+		//This controls the speed of the ball. It rolls the ball
+		//at a random speed, we go with this, put some logic around
+		// min\max speeds
+	    randnum= Math.floor(Math.random()*50);
+	    console.log(randnum);
+	   // randnum += 100; 
 	    return randnum; 
 	} 
 	 
