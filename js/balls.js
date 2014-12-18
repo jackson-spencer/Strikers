@@ -1,6 +1,6 @@
 	var dirx = 1; 
 	var diry = 1; 
-	var spdx = setRand(); 
+	var spdx = 120; 
 	var spdy = setRand(); 
 	var imgLeftInt; 
 	var imgTopInt; 
@@ -13,12 +13,14 @@
 
 	function resetBall() {
 		clearInterval(t);
+		document.getElementById("RollLink").style.visibility="";
 		dirx = 1; 
-	    spdx= 120; // here is where we could change the speed of the ball 
+	    //spdx= 120; // here is where we could change the speed of the ball 
  	    document.images['ball1'].style.left = imgStrLeftInt +"px"; 
  	}
   	function animBall(on) {   
 
+  		document.getElementById("RollLink").style.visibility="hidden";
   		//need code to disable "Roll Ball" action while this is active
   		// since js is async, user can push roll while animation = bad            
  	    imgLeftInt = parseInt(document.images['ball1'].style.left); 
