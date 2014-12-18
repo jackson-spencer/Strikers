@@ -14,7 +14,7 @@
 	function resetBall() {
 		clearInterval(t);
 		dirx = 1; 
-	    spdx= setRand();
+	    spdx= 120; // here is where we could change the speed of the ball 
  	    document.images['ball1'].style.left = imgStrLeftInt +"px"; 
  	}
   	function animBall(on) {   
@@ -32,6 +32,7 @@
  	        goRight(); 
  	    } else {                                     // otherwise, I'd better go left! 
  	        //goLeft();
+ 	        document.getElementById('pinResult').innerHTML = getScore();
  	        resetBall();
  	    } 
  	 

@@ -6,7 +6,10 @@ describe( 'MainTest', function () {
     var result = sayHello();
     expect( result ).to.equal( 'hello, world' );
   });
- 
+  it( 'fail', function () {
+    var result = sayHello();
+    expect( result ).to.equal( 'hello, Shellee' );
+  });
 });
 
 
