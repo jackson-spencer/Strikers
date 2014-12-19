@@ -1,0 +1,64 @@
+﻿<style type="text/css" > body {
+}
+
+.scoreBox {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid black;
+    font-size: 80%;
+    font-family: Arial;
+    width: 530px;
+}
+
+.frameScoreContainer {
+    flex: 1;
+    width: 50px;
+    border-right: 1px solid black;
+}
+
+.rollScoreRow {
+    text-align: right;
+    display: flex;
+    flex-direction: row;
+}
+
+.rollScore {
+    flex: 1;
+    width: 12px;
+    height: 1.25em;
+    padding: 2px;
+    text-align: center;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.rollScoreSpacer {
+    flex: 1;
+    width: 12px;
+}
+
+.frameScore {
+    text-align: center;
+    font-size: 100%;
+    padding: 5px;
+    height: 1em;
+}
+
+.totalScore {
+    flex: 1;
+    text-align: center;
+    font-size: 120%;
+    font-weight: bold;
+    padding: 5px;
+    border: 1px solid black;
+    position: relative;
+}
+
+div.totalScore p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+</style >
