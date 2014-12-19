@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+
+    <script type="text/javascript" src="/scripts/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="/scripts/BowlingCalculator.js"></script>
+
+    <script>
+        $(document).ready(function(){
+
+            var game = new Bowling.Game();
+            var frame;
+            var frameNumber;
+            var rollScore;
+            var rollScoreDisplay = "";
+
+            frame = game.addFrame(frameNumber);
+
+            frameNumber = 1;
+            rollNumber = 1;
+            rollScore = 3;
+            rollScoreDisplay = frame.recordRoll(rollNumber, rollScore);
+            updateRollScore(frameNumber, rollNumber, rollScoreDisplay);
+
+            frameNumber = 1;
+            rollNumber = 2;
+            rollScore = 7;
+            rollScoreDisplay = frame.recordRoll(rollNumber, rollScore);
+            updateRollScore(frameNumber, rollNumber, rollScoreDisplay);
+
+            frameNumber = 2;
+            rollNumber = 1;
+            rollScore = 10;
+            rollScoreDisplay = frame.recordRoll(rollNumber, rollScore);
+            updateRollScore(frameNumber, rollNumber, rollScoreDisplay);
+
+
+        });
+
+        function updateRollScore(frameNumber, rollNumber, displayValue) {
+
+            var divId = "#rollScore_" + frameNumber + "_" + rollNumber;
+            var div = $(divId);
+
+            div.html(displayValue);
+        }
+
+    </script>
+
+    <style type="text/css">
+        body{
+          
+        }
+
+        .scoreBox {
+            display: flex;
+            flex-direction:row;
+            border: 1px solid black;
+            font-size: 80%;
+            font-family: Arial;
+            width: 530px;
+        }
+
+        .frameScoreContainer{
+            flex: 1;
+            width: 50px;
+            border-right: 1px solid black;
+        }
+
+        .rollScoreRow{
+            text-align:right;
+            display: flex;
+            flex-direction:row;
+        }
+        
+        .rollScore {
+            flex: 1;
+            width: 12px;
+            height: 1.25em;
+            padding: 2px;
+            text-align: center;
+            border-left: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+
+        .rollScoreSpacer {
+            flex: 1;
+            width: 12px;
+        }
+
+        .frameScore{
+            text-align: center;
+            font-size: 100%;
+            padding: 5px;
+            height: 1em;
+        }
+        .totalScore{
+            flex: 1;
+            text-align:center;
+            font-size: 120%;
+            font-weight:bold;
+            padding: 5px;
+            border: 1px solid black;
+            position: relative;
+        }
+        div.totalScore p {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            transform: translate(0, -50%);
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="scoreBox" class="scoreBox">
+
+        <div id="frameScoreContainer_1" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_1_1" class="rollScore"></div>
+                <div id="rollScore_1_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_1" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_2" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_2_1" class="rollScore"></div>
+                <div id="rollScore_2_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_2" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_3" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_3_1" class="rollScore"></div>
+                <div id="rollScore_3_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_3" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_4" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_4_1" class="rollScore"></div>
+                <div id="rollScore_4_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_4" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_5" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_5_1" class="rollScore"></div>
+                <div id="rollScore_5_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_5" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_6" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_6_1" class="rollScore"></div>
+                <div id="rollScore_6_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_6" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_7" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_7_1" class="rollScore"></div>
+                <div id="rollScore_7_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_7" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_8" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_8_1" class="rollScore"></div>
+                <div id="rollScore_8_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_8" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_9" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div class="rollScoreSpacer"></div>
+                <div id="rollScore_9_1" class="rollScore"></div>
+                <div id="rollScore_9_2" class="rollScore"></div>
+            </div>
+            <div id="frameScore_9" class="frameScore"></div>
+        </div>
+
+        <div id="frameScoreContainer_10" class="frameScoreContainer">
+            <div class="rollScoreRow">
+                <div id="rollScore_10_1" class="rollScore" style="border-left:0px"></div>
+                <div id="rollScore_10_2" class="rollScore"></div>
+                <div id="rollScore_10_3" class="rollScore"></div>
+            </div>
+            <div id="frameScore_10" class="frameScore" ></div>
+        </div>
+        <div id="frameScoreContainer_total" class="totalScore"><p class=""></p></div>
+    </div>
+</body>
+
+</html>
