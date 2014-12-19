@@ -26,5 +26,10 @@ it( 'clear the cumulative score', function () {
     expect( result.length ).to.be.equal(0);
   });
 
- 
+//get the current frame
+//get the current ball
+//move frame to next for strike
+//move ball to next for strike
+
+
 });
