@@ -1,6 +1,6 @@
 	var dirx = 1; 
 	var diry = 1; 
-	var spdx = 120; 
+	var spdx = 80; 
 	var spdy = setRand(); 
 	var imgLeftInt; 
 	var imgTopInt; 
@@ -10,6 +10,8 @@
  	var winWidth; 
 	var winHeight; 
 	var t; 
+	var ballcount = 1;
+	var bowlingframe = 1;
 
 	function resetBall() {
 		clearInterval(t);
@@ -18,6 +20,7 @@
 	    //spdx= 120; // here is where we could change the speed of the ball 
  	    document.images['ball1'].style.left = imgStrLeftInt +"px"; 
  	}
+
   	function animBall(on) {   
 
   		document.getElementById("RollLink").style.visibility="hidden";
@@ -30,25 +33,65 @@
  	    winWidth = parseInt(computeWin().windWidth) / 1.30; 
  	    winHeight = parseInt(computeWin().windHeight); 
  	 
- 	    if(dirx == 1){                            // if I should go right... 
+ 	    if(dirx == 1){                 1          // if I should go right... 
  	        goRight(); 
- 	    } else {                                     // otherwise, I'd better go left! 
- 	        //goLeft();
- 	        var randomScore = getRandom(1,10);
- 	        setScore(randomScore);
- 	        document.getElementById('pinResult').innerHTML = getCurrentRoll();
- 	        document.getElementById('TotalScore').innerHTML = getCumulativeScore();
- 	        resetBall();
- 	    } 
+ 	    } else {
+ 	    	
+ 	      	      	
+ 	      	if (bowlingframe < 11) { // keep playing we still have frames to go
+ 	      		var pinsdown = knockDownPins(ballcount);
+ 	      		setScore(pinsdown);
+
+ 	      		if (pinsdown == 10) { //if we got a strike reset for next frame
+ 	      			ballcount = 1; 
+ 	      			bowlingframe += 1; 	      			
+ 	      		} else if (ballcount == 1) { //on first ball
+ 	      			ballcount += 1;
+ 	      		} else { //on second ball
+ 	      			bowlingframe += 1;
+ 	      			ballcount = 1; 	      			
+ 	      		}	
+ 	      		
+ 	      		if (bowlingframe == 11) { // then we are done, don't show the next frame and ball
+ 	      			document.getElementById('ballnumber').innerHTML = "done";
+ 	      	 		document.getElementById("framenum").innerHTML = "done";	
+ 	      		} else { //show the next frame and ball
+ 	      			document.getElementById('ballnumber').innerHTML = ballcount;
+ 	      	 		document.getElementById("framenum").innerHTML = bowlingframe;	
+ 	      		}
+ 	      		//show the scores
+ 	      	 	document.getElementById('pinResult').innerHTML = getCurrentRoll();
+ 			 	document.getElementById('TotalScore').innerHTML = getCumulativeScore();
+ 	      		
+ 	
+ 	      	} else { //reset game, we have exceeded 10 frames
+ 	      		clearCumulativeScore();
+ 	      		bowlingframe = 1;
+ 	      		document.getElementById('ballnumber').innerHTML = "";
+ 	      	 	document.getElementById("framenum").innerHTML = "";
+ 	      	 	document.getElementById('pinResult').innerHTML = "";
+ 			 	document.getElementById('TotalScore').innerHTML = "";
+ 	      	}
+	
+ 	      	  
+ 	    	 resetBall();	
+ 	   }
+    
+ 	    
+ 	      	
+ 	        
+ 	     
  	 
  	    //if(diry == 1) {                             // if I should go down... 
  	    //    goDown();  
  	    //} else {                                              // otherwise, I'll go up! 
 	    //    goUp(); 
 	    //} 
-	 
+	 	
 	} 
- 	 
+ 	
+ 
+
  	function goRight() { 
  	    document.images['ball1'].style.left = imgLeftInt+spdx +"px"; 
  	    if (imgLeftInt >  (winWidth-imgWidth)){ 
