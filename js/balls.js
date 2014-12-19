@@ -6,7 +6,7 @@
 	var imgTopInt; 
 	var imgHeight; 	
 	var imgWidth; 
- 	var imgStrLeftInt = parseInt(document.images['ball1'].style.left); 
+ //	var imgStrLeftInt = parseInt(document.images['ball1'].style.left); 
  	var winWidth; 
 	var winHeight; 
 	var t; 
@@ -17,7 +17,7 @@
 		document.getElementById("RollLink").style.visibility="";
 		dirx = 1; 
 	    //spdx= 120; // here is where we could change the speed of the ball 
- 	    document.images['ball1'].style.left = imgStrLeftInt +"px"; 
+ 	    document.images['ball1'].style.left = "10px"; 
  	}
 
   	function animBall(on) {   

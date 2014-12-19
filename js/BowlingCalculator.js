@@ -50,7 +50,7 @@ Bowling.Frame.prototype.recordRoll = function(rollNum, pins){
     else if (rollNum === 1){
         rollDisplay = pins;
     }
-    else if (rollNum === 2 && this.rollPins_1 + this.rollPins_2 === 10) {
+    else if (rollNum === 2 && ((this.rollPins_1 + this.rollPins_2) === 10)) {
         rollDisplay = "/";
     }
     else if (rollNum === 2 && pins === 0) {
@@ -72,8 +72,10 @@ Bowling.Frame.prototype.recordRoll = function(rollNum, pins){
 Bowling.Game = function () {
 
     // public properties
-    this.frames = new Array();
-    this.framesPlayed = 0;
+    this.frames = new Array(10);
+    for (var i=0; i < 10; i++) {
+        this.frames[i] = new Bowling.Frame(i + 1);
+    }
 };
 
 // getTotalScore method

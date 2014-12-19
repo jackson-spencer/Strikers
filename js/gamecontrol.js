@@ -2,19 +2,23 @@
 
 var ballcount = 1;
 var bowlingframe = 1;
-//var game = new Bowling.Game();
-//var oframe;
-//var rollScoreDisplay;
+var game = new Bowling.Game();
+var oframe;
+var rollScoreDisplay;
 
 function advanceFrame() {
    
 	if (bowlingframe < 11) { // keep playing we still have frames to go
+ 	     		
+
  	     		//oframe = game.addFrame(bowlingframe);  		
+ 	     		oframe = game.frames[bowlingframe -1];
 
  	      		var pinsdown = knockDownPins(ballcount);
  	      		setScore(pinsdown);
 
- 	      		//rollScoreDisplay = oframe.recordRoll(ballcount,pinsdown);
+ 	      		rollScoreDisplay = oframe.recordRoll(ballcount,pinsdown);
+ 	      		updateRollScore(bowlingframe, ballcount, rollScoreDisplay);
 
  	      		if (pinsdown == 10) { //if we got a strike reset for next frame
  	      			ballcount = 1; 
@@ -34,6 +38,8 @@ function advanceFrame() {
  	      	 		document.getElementById("framenum").innerHTML = bowlingframe;	
  	      		}
  	      		//show the scores
+ 	      	 	
+
  	      	 	document.getElementById('pinResult').innerHTML = getCurrentRoll();
  			 	document.getElementById('TotalScore').innerHTML = getCumulativeScore();
  	      		
@@ -41,6 +47,8 @@ function advanceFrame() {
 	} else { //reset game, we have exceeded 10 frames
  	      		clearCumulativeScore();
  	      		bowlingframe = 1;
+ 	      		game = new Bowling.Game();
+ 	      		$ ( '.rollScore').html("");
  	      		document.getElementById('ballnumber').innerHTML = "";
  	      	 	document.getElementById("framenum").innerHTML = "";
  	      	 	document.getElementById('pinResult').innerHTML = "";
